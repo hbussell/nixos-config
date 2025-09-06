@@ -16,7 +16,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #polymc.url = "github:PolyMC/PolyMC";
+    utils.url = "path:utils";
+
+    nix-colors.url = "github:misterio77/nix-colors";
+    base16-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
+
+    base16.url = "github:SenchoPens/base16.nix";
+
+    nix-std.url = "github:chessai/nix-std";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
