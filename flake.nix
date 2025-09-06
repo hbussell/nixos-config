@@ -10,14 +10,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+/*
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    utils.url = "path:utils";
-
+   
     nix-colors.url = "github:misterio77/nix-colors";
     base16-schemes = {
       url = "github:tinted-theming/schemes";
@@ -27,6 +26,7 @@
     base16.url = "github:SenchoPens/base16.nix";
 
     nix-std.url = "github:chessai/nix-std";
+    */
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
@@ -36,7 +36,7 @@
     in {
 
     # nixos - system hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.harley = nixpkgs.lib.nixosSystem {
       specialArgs = {
         pkgs-stable = import nixpkgs-stable {
           inherit system;

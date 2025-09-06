@@ -41,3 +41,6 @@ https://github.com/partisani/nixfiles/tree/main
 https://github.com/ChristianWSmith/nix-config/tree/main
 https://github.com/fryalien/nix/tree/main
 https://github.com/Andrey0189/nixos-config/blob/main/flake.nix
+https://librephoenix.com/2023-10-21-intro-flake-config-setup-for-new-nixos-users.html
+https://librephoenix.com/2023-12-03-making-your-nixos-config-more-modular
+https://github.com/librephoenix/nixos-config/tree/main
