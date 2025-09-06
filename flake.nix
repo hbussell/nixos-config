@@ -10,23 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-/*
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
-   
-    nix-colors.url = "github:misterio77/nix-colors";
-    base16-schemes = {
-      url = "github:tinted-theming/schemes";
-      flake = false;
-    };
-
-    base16.url = "github:SenchoPens/base16.nix";
-
-    nix-std.url = "github:chessai/nix-std";
-    */
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
@@ -44,15 +28,6 @@
         };
         inherit inputs system;
       };
-      modules = [
-        ./nixos/configuration.nix
-        inputs.nixvim.nixosModules.nixvim
-      ];
-    };
-
-    homeConfigurations.harley = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      modules = [ ./home-manager/home.nix ];
     };
   };
 }
