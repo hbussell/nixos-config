@@ -128,7 +128,7 @@
   # networking.firewall.enable = false;
 
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; # Enabling flakes
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
