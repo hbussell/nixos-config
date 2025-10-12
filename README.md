@@ -44,3 +44,8 @@ https://github.com/Andrey0189/nixos-config/blob/main/flake.nix
 https://librephoenix.com/2023-10-21-intro-flake-config-setup-for-new-nixos-users.html
 https://librephoenix.com/2023-12-03-making-your-nixos-config-more-modular
 https://github.com/librephoenix/nixos-config/tree/main
+https://www.youtube.com/watch?v=2QjzI5dXwDY
+
+https://gitlab.com/Zaney/zaneyos
+
+https://www.youtube.com/watch?v=Nak9A3-Mlr8

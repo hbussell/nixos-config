@@ -75,7 +75,7 @@
 
     # WMs and stuff
     #herbstluftwm
-    hyprland
+    #hyprland
     #seatd
     xdg-desktop-portal-hyprland
     #polybar
