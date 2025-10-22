@@ -6,7 +6,8 @@
     #./zsh.nix
     #./modules/bundle.nix
     ./modules/niri/niri.nix
-
+    ./modules/waybar/waybar.nix
+    ./modules/wofi.nix
   ];
 
   home = {
