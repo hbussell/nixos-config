@@ -8,13 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+#      "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "harley"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -58,6 +59,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+#  virtualisation.qemu.guestAgent.enable = true;  
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+
+  
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -102,9 +108,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    curl
     git
   ];
 
@@ -127,9 +132,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; # Enabling flakes
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -138,4 +140,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

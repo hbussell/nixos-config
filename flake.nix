@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   
+
     nix-colors.url = "github:misterio77/nix-colors";
     base16-schemes = {
       url = "github:tinted-theming/schemes";
@@ -36,7 +36,7 @@
     in {
 
     # nixos - system hostname
-    nixosConfigurations.harley = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
         pkgs-stable = import nixpkgs-stable {
           inherit system;
@@ -46,13 +46,13 @@
       };
       modules = [
         ./nixos/configuration.nix
-        inputs.nixvim.nixosModules.nixvim
       ];
     };
 
-    homeConfigurations.harley = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      modules = [ ./home-manager/home.nix ];
-    };
+    #homeConfigurations.harley = home-manager.lib.homeManagerConfiguration {
+      #pkgs = nixpkgs.legacyPackages.${system};
+    #  useGlobalPkgs = true;
+    #  modules = [ ./home-manager/home.nix ];
+    #};
   };
 }
