@@ -15,15 +15,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-    # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = false;
-  boot.initrd.kernelModules = [ "pinctrl_tigerlake" ];
-
-
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -55,52 +46,10 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  programs.xwayland.enable = true;
-  programs.niri.enable = true;
-
-
-# Plymouth module, check available themes at https://github.com/adi1090x/plymouth-themes
-  boot.plymouth = {
-    enable = true;
-    themePackages = [ pkgs.adi1090x-plymouth-themes ];
-    theme = "circuit";
-  };
-
-  
-  # Nix Garbage Collection. Remove old system generations
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-
-  # Enable Flatpak
-  services.flatpak.enable = true;
-
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  # Display Manager
-  services.displayManager.defaultSession = "niri";
-  # services.xserver.displayManager.lightdm.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      load = true;
-      save = true;
-      hide_key_hints = true;
-      hide_version_string = true;
-      full_color = true;
-    };
-  };
-
-
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -110,11 +59,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-#  virtualisation.qemu.guestAgent.enable = true;  
+#  virtualisation.qemu.guestAgent.enable = true;
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
-  
+
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -162,23 +111,6 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    niri
-    zip
-    unzip
-    rar
-    unrar
-    gnutar
-    iproute2
-    gcc
-    unixtools.ping
-    plymouth
-    parted
-    xwayland-satellite
-    brightnessctl
-    xbindkeys
-    xdg-utils
-    xbindkeys-config
-    nautilus
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
