@@ -100,7 +100,11 @@
   services.displayManager.autoLogin.user = "harley";
 
   # Install firefox.
-  programs.firefox.enable = true;
+
+
+
+
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -111,7 +115,33 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    steam
+
+    vscode
+    adw-gtk3
+    papirus-icon-theme
+    xfce.thunar
+    gnumake
+    go
+    gcc
+    kitty
+
   ];
+
+
+   programs = {
+    firefox.enable = true;
+    niri.enable = true;
+    xwayland.enable = true;
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamemode.enable = true;
+  };
+  virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

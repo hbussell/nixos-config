@@ -80,6 +80,13 @@
       enable = true;
       userName = "Harley Bussell";
       userEmail = "harley.r.bussell@gmail.com";
+      /*
+      user = {
+
+        name = "Harley Bussell";
+        email = "harley.r.bussell@gmail.com";
+      }
+      */
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = true;
