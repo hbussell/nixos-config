@@ -1,58 +1,29 @@
 {
-  description = "My system configuration";
+  description = "NixOS configuration";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-/*
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-
-    nix-colors.url = "github:misterio77/nix-colors";
-    base16-schemes = {
-      url = "github:tinted-theming/schemes";
-      flake = false;
-    };
-
-    base16.url = "github:SenchoPens/base16.nix";
-
-    nix-std.url = "github:chessai/nix-std";
-    */
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.harley = ./home-manager/home.nix;
 
-    let
-      system = "x86_64-linux";
-    in {
-
-    # nixos - system hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit inputs system;
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+        ];
       };
-      modules = [
-        ./nixos/configuration.nix
-      ];
     };
-
-    #homeConfigurations.harley = home-manager.lib.homeManagerConfiguration {
-      #pkgs = nixpkgs.legacyPackages.${system};
-    #  useGlobalPkgs = true;
-    #  modules = [ ./home-manager/home.nix ];
-    #};
   };
 }

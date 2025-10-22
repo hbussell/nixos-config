@@ -6,7 +6,7 @@
 ## Install
 
 ```sh
-sudo nixos-rebuild switch 
+sudo nixos-rebuild switch
 ```
 
 Set unstable channel
@@ -15,11 +15,17 @@ sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 ```
 
+Check flakes
+```sh
+nix flake check
+```
+
 Install with flakes
 ```sh
 sudo nixos-rebuild switch --flake .
 sudo nixos-rebuild switch --flake .#harley
 ```
+
 
 
 ## Upgrade
