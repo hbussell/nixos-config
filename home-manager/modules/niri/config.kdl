@@ -1,7 +1,7 @@
 input {
     keyboard {
         xkb {
-          
+
             layout "us,es"
             options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
@@ -9,7 +9,7 @@ input {
         numlock
     }
 
-    
+
     touchpad {
         // off
         tap
@@ -372,13 +372,13 @@ window-rule {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "bitwarden"
+#spawn-at-startup "bitwarden"
 spawn-sh-at-startup "waypaper --random"
 // spawn-at-startup "obs"
 // spawn-at-startup "steam"
 // spawn-at-startup "obsidian"
-spawn-at-startup "spotify"
-spawn-at-startup "chromium"
+#spawn-at-startup "spotify"
+#spawn-at-startup "chromium"
 spawn-at-startup "ghostty"
 
 binds {
@@ -632,4 +632,3 @@ binds {
 layer-rule {
     place-within-backdrop true
 }
-
