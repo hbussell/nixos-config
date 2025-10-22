@@ -5,6 +5,8 @@
   imports = [
     #./zsh.nix
     #./modules/bundle.nix
+    ./modules/niri/niri.nix
+
   ];
 
   home = {
