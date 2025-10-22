@@ -44,6 +44,8 @@ https://nixos.org/guides/nix-pills/06-our-first-derivation
 ## Reference Projects
 
 https://github.com/partisani/nixfiles/tree/main
+https://github.com/dustinlyons/nixos-config
+
 https://github.com/ChristianWSmith/nix-config/tree/main
 https://github.com/fryalien/nix/tree/main
 https://github.com/Andrey0189/nixos-config/blob/main/flake.nix
